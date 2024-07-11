@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Data</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Submitted Data</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'submissions_list' %}">Submissions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>All Submissions</h2>
+        <ul>
+            {% for submission in submissions %}
+            <li>{{ submission.name }} ({{ submission.email }}) - {{ submission.submitted_at }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>Contact us at: info@mywebsite.com</p>
+    </footer>
+</body>
+</html>
