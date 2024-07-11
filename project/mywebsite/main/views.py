@@ -3,7 +3,6 @@ from datetime import datetime
 import random
 from .models import Submission
 
-# Function to generate dynamic content
 def get_dynamic_content():
     quotes = [
         "Life is what happens when you're busy making other plans.",
