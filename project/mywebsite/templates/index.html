@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Web Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to My Website</h2>
+        <p>This is a basic web page with a header, navigation menu, main content area, and footer.</p>
+        <h3>Current Date and Time</h3>
+        <p>{{ current_datetime }}</p>
+        <h3>Quote of the Moment</h3>
+        <p>{{ random_quote }}</p>
+
+        <!-- User Data Form -->
+        <h3>Submit Your Details</h3>
+        <form method="post" action="{% url 'submit_form' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+       
+    </main>
+    <footer>
+        <p>Contact us at: info@mywebsite.com</p>
+    </footer>
+</body>
+</html>
+
